@@ -1,0 +1,528 @@
+/* =========================================
+   EduManage - Styles.css
+   Theme: Blue + Purple, white cards
+   ========================================= */
+
+/* ---------- 1. Colors stored as variables ---------- */
+:root {
+  --blue: #3b5bdb;
+  --purple: #7048e8;
+  --blue-light: #edf2ff;
+  --purple-light: #f3f0ff;
+  --bg: #f4f6fc;
+  --text: #1e2340;
+  --muted: #6b7194;
+  --border: #dfe3f2;
+  --danger: #e03131;
+  --danger-light: #fff0f0;
+  --white: #ffffff;
+  --radius: 14px;
+  --shadow: 0 6px 24px rgba(59, 91, 219, 0.10);
+}
+
+/* ---------- 2. Basic reset ---------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Plus Jakarta Sans", Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.5;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Keeps content centered and not too wide */
+.container {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+main.container {
+  flex: 1;
+  padding-top: 28px;
+  padding-bottom: 36px;
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* ---------- 3. Header ---------- */
+.header {
+  background: linear-gradient(120deg, var(--blue), var(--purple));
+  color: var(--white);
+  padding: 22px 0;
+  box-shadow: 0 4px 18px rgba(80, 60, 200, 0.25);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.logo {
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  background: var(--white);
+  color: var(--purple);
+  font-size: 1.7rem;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.brand {
+  font-size: 1.6rem;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  line-height: 1.1;
+}
+
+.tagline {
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
+/* ---------- 4. Dashboard cards ---------- */
+.dashboard {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+  margin-bottom: 22px;
+}
+
+.stat-card {
+  background: var(--white);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 22px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.stat-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 16px;
+  font-size: 1.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.stat-icon.blue {
+  background: var(--blue-light);
+}
+
+.stat-icon.purple {
+  background: var(--purple-light);
+}
+
+.stat-label {
+  color: var(--muted);
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.stat-number {
+  font-size: 2rem;
+  font-weight: 800;
+  line-height: 1.1;
+}
+
+/* ---------- 5. Generic white card ---------- */
+.card {
+  background: var(--white);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 24px;
+  margin-bottom: 22px;
+}
+
+.card-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+/* ---------- 6. Form ---------- */
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  align-items: end;
+}
+
+.field label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+input,
+select {
+  width: 100%;
+  height: 46px;
+  padding: 12px 14px;
+  font-family: inherit;
+  font-size: 0.95rem;
+  color: var(--text);
+  background: var(--white);
+  border: 1.5px solid var(--border);
+  border-radius: 10px;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+input:focus,
+select:focus {
+  border-color: var(--purple);
+  box-shadow: 0 0 0 3px rgba(112, 72, 232, 0.15);
+}
+
+.form-actions {
+  grid-column: 1 / -1;
+  display: flex;
+  gap: 12px;
+}
+
+/* ---------- 7. Buttons ---------- */
+.btn {
+  font-family: inherit;
+  font-size: 0.95rem;
+  font-weight: 600;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.15s, box-shadow 0.15s, background 0.15s;
+}
+
+.btn:active {
+  transform: scale(0.97);
+}
+
+.btn:focus-visible {
+  outline: 3px solid rgba(112, 72, 232, 0.4);
+  outline-offset: 2px;
+}
+
+.btn-primary {
+  background: linear-gradient(120deg, var(--blue), var(--purple));
+  color: var(--white);
+  box-shadow: 0 4px 14px rgba(112, 72, 232, 0.35);
+}
+
+.btn-primary:hover {
+  box-shadow: 0 6px 18px rgba(112, 72, 232, 0.45);
+}
+
+.btn-ghost {
+  background: var(--bg);
+  color: var(--muted);
+}
+
+.btn-ghost:hover {
+  background: var(--border);
+}
+
+/* Small buttons inside the table */
+.btn-small {
+  padding: 7px 14px;
+  font-size: 0.82rem;
+  border-radius: 8px;
+}
+
+.btn-edit {
+  background: var(--blue-light);
+  color: var(--blue);
+}
+
+.btn-edit:hover {
+  background: #dbe4ff;
+}
+
+.btn-delete {
+  background: var(--danger-light);
+  color: var(--danger);
+}
+
+.btn-delete:hover {
+  background: #ffe0e0;
+}
+
+/* ---------- 8. Message (errors / success) ---------- */
+.message {
+  margin-top: 14px;
+  padding: 10px 14px;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.message.error {
+  background: var(--danger-light);
+  color: var(--danger);
+}
+
+.message.success {
+  background: #ebfbee;
+  color: #2b8a3e;
+}
+
+/* ---------- 9. List header + search ---------- */
+.list-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+
+.list-head .card-title {
+  margin-bottom: 0;
+}
+
+.search-group {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.search {
+  width: 250px;
+}
+
+.course-filter {
+  width: 160px;
+}
+
+/* ---------- 10. Table ---------- */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table th {
+  text-align: left;
+  font-size: 0.85rem;
+  color: var(--muted);
+  font-weight: 600;
+  padding: 12px 14px;
+  background: var(--bg);
+}
+
+.table th:first-child {
+  border-radius: 10px 0 0 10px;
+}
+
+.table th:last-child {
+  border-radius: 0 10px 10px 0;
+}
+
+.table td {
+  padding: 14px;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.95rem;
+}
+
+.table tbody tr:hover {
+  background: #fafbff;
+}
+
+.table td.actions {
+  display: flex;
+  gap: 8px;
+}
+
+/* Course badge */
+.badge {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 20px;
+  background: var(--purple-light);
+  color: var(--purple);
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.empty {
+  text-align: center;
+  color: var(--muted);
+  padding: 30px 10px 10px;
+}
+
+
+/* ---------- Delete popup ---------- */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(30, 35, 64, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  z-index: 100;
+}
+
+.modal {
+  background: var(--white);
+  border-radius: var(--radius);
+  box-shadow: 0 12px 40px rgba(30, 35, 64, 0.3);
+  padding: 26px;
+  width: 100%;
+  max-width: 380px;
+}
+
+.modal h3 {
+  font-size: 1.15rem;
+  margin-bottom: 8px;
+}
+
+.modal p {
+  color: var(--muted);
+  margin-bottom: 20px;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.btn-danger {
+  background: var(--danger);
+  color: var(--white);
+}
+
+.btn-danger:hover {
+  background: #c92a2a;
+}
+
+/* ---------- 11. Footer ---------- */
+.footer {
+  text-align: center;
+  padding: 20px;
+  color: var(--muted);
+  font-size: 0.9rem;
+  background: var(--white);
+  border-top: 1px solid var(--border);
+}
+
+.footer strong {
+  color: var(--purple);
+}
+
+/* =========================================
+   12. RESPONSIVE (tablet and mobile)
+   ========================================= */
+
+/* Tablet: form becomes 2 columns */
+@media (max-width: 800px) {
+  .form-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .container {
+    padding: 0 14px;
+  }
+
+  .brand {
+    font-size: 1.35rem;
+  }
+
+  .dashboard {
+    gap: 12px;
+  }
+
+  .stat-card {
+    flex-direction: column;
+    text-align: center;
+    padding: 18px 10px;
+    gap: 10px;
+  }
+
+  .card {
+    padding: 18px;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .form-actions .btn {
+    flex: 1;
+  }
+
+  .search-group {
+    width: 100%;
+  }
+
+  .search,
+  .course-filter {
+    width: 100%;
+  }
+
+  /* Table rows turn into small cards on phones */
+  .table thead {
+    display: none;
+  }
+
+  .table,
+  .table tbody,
+  .table tr,
+  .table td {
+    display: block;
+    width: 100%;
+  }
+
+  .table tr {
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 8px 4px;
+    margin-bottom: 12px;
+  }
+
+  .table td {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: none;
+    padding: 8px 12px;
+  }
+
+  /* Shows the column name before each value (uses data-label in HTML) */
+  .table td::before {
+    content: attr(data-label);
+    font-weight: 600;
+    color: var(--muted);
+    font-size: 0.85rem;
+  }
+
+  .table td.actions {
+    justify-content: flex-end;
+  }
+
+  .table td.actions::before {
+    display: none;
+  }
+}

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EduManage - Student Management System</title>
+
+  <!-- Google Font (falls back to Arial if offline) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Our own CSS file -->
+  <link rel="stylesheet" href="Style.css">
+</head>
+<body>
+
+  <!-- ============ HEADER ============ -->
+  <header class="header">
+    <div class="container header-inner">
+      <div class="logo">E</div>
+      <div>
+        <h1 class="brand">EduManage</h1>
+        <p class="tagline">Student Management System</p>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <!-- ============ DASHBOARD ============ -->
+    <section class="dashboard">
+      <div class="stat-card">
+        <div class="stat-icon blue">👨‍🎓</div>
+        <div>
+          <p class="stat-label">Total Students</p>
+          <p class="stat-number" id="totalStudents">0</p>
+        </div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-icon purple">📚</div>
+        <div>
+          <p class="stat-label">Total Courses</p>
+          <p class="stat-number" id="totalCourses">0</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ ADD / EDIT STUDENT FORM ============ -->
+    <section class="card">
+      <h2 class="card-title" id="formTitle">Add Student</h2>
+
+      <form id="studentForm" class="form-grid" novalidate>
+        <div class="field">
+          <label for="name">Name</label>
+          <input type="text" id="name" placeholder="e.g. Rahul Sharma" required>
+        </div>
+
+        <div class="field">
+          <label for="roll">Roll No</label>
+          <input type="text" id="roll" placeholder="e.g. 101" required>
+        </div>
+
+        <div class="field">
+          <label for="course">Course</label>
+          <select id="course" required>
+            <option value="">Select course</option>
+            <option value="BCA">BCA</option>
+            <option value="BBA">BBA</option>
+            <option value="B.Com">B.Com</option>
+            <option value="B.Pharma">B.Pharma</option>
+            <option value="B.Tech">B.Tech</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="phone">Phone Number</label>
+          <input type="tel" id="phone" placeholder="10 digit number" maxlength="10" required>
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" class="btn btn-primary" id="submitBtn">Add Student</button>
+          <button type="button" class="btn btn-ghost hidden" id="cancelBtn">Cancel</button>
+        </div>
+      </form>
+
+      <!-- Error message shows here -->
+      <p class="message hidden" id="message"></p>
+    </section>
+
+    <!-- ============ STUDENT LIST ============ -->
+    <section class="card">
+      <div class="list-head">
+        <h2 class="card-title">Student List</h2>
+        <div class="search-group">
+          <input type="search" id="searchBox" class="search" placeholder="Search by name or roll no">
+          <select id="courseFilter" class="course-filter">
+            <option value="">All Courses</option>
+            <option value="BCA">BCA</option>
+            <option value="BBA">BBA</option>
+            <option value="B.Com">B.Com</option>
+            <option value="B.Pharma">B.Pharma</option>
+            <option value="B.Tech">B.Tech</option>
+          </select>
+        </div>
+      </div>
+
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Roll No</th>
+            <th>Course</th>
+            <th>Phone</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody id="studentTable">
+          <!-- Rows are added here by App.js -->
+        </tbody>
+      </table>
+
+      <p class="empty hidden" id="emptyMsg"></p>
+    </section>
+
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <p>Made by <strong>Nazir Ahmed</strong></p>
+  </footer>
+
+  <!-- ============ DELETE CONFIRM POPUP ============ -->
+  <div class="overlay hidden" id="confirmBox">
+    <div class="modal">
+      <h3>Delete Student?</h3>
+      <p id="confirmText"></p>
+      <div class="modal-actions">
+        <button type="button" class="btn btn-ghost" id="confirmNo">Cancel</button>
+        <button type="button" class="btn btn-danger" id="confirmYes">Yes, Delete</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Our own JavaScript file -->
+  <script src="App.js"></script>
+</body>
+</html>
